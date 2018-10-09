@@ -1,0 +1,85 @@
+<style>
+    img {
+        max-width: 100%
+    }
+
+    .a{
+        text-decoration-style: none;
+        text-decoration-color: none;
+        text-underline-position: none;
+    }
+
+    .top{
+        background-color: #08088A;
+        width: 800px;
+        height: 40px;
+        margin-left: 350px;
+        text-align: center;
+        font-weight: 300;
+        font-size: 16px;
+        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    }
+
+    .name{
+        position: absolute;
+        bottom: 0;
+        width: 800px;
+        text-align: center;
+        background: #000;
+        color: #fff;
+        opacity: 0.6;
+    }
+
+    .frame{
+        width: 800px;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        float: left;
+        margin-right: 50px;
+        margin-top: 50px;
+        margin-left: 350px;
+        margin-bottom: 50px;
+        box-shadow: 0 0 10px 5px #bbb;
+        display: inline-block;
+    }
+
+   .button{
+        color: #666;
+        background-color: #EEE;
+        border-color: #EEE;
+        font-weight: 300;
+        font-size: 16px;
+        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 40px;
+        margin: 0;
+        display: inline-block;
+        appearance: none;
+        cursor: pointer;
+        border: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+        height: 30px;
+        line-height: 24px;
+        padding: 0 24px; 
+        width: 400px;
+        float: left;
+    }
+
+    .button-container{
+        text-align: center;
+        background-color: white;
+        width: 800px;
+        height: 30px;
+        margin-left: 350px;
+    }
+</style>

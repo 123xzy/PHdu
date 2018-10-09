@@ -1,0 +1,272 @@
+
+<div class="top">
+    <font size="5" color="white">口袋杭电</font>
+    <font size="3" color="#00BFFF">日租房信息</font>
+</div>
+
+
+<div class="button-container">
+ 	<button onclick= "window.location.href = 'apart.html'" class="button">公寓</button>
+    <button onclick= "window.location.href = 'villa.html'" class="button">别墅</button>
+</div>  
+
+<div class="main_div">
+   <div class="arrows">
+         <span title="1" class="arrow"><</span>
+         <span title="0" class="arrow" style="float: right">></span>
+   </div>
+
+   <ul class="ul_img" style="transform: translate(-800px);">
+         <li class="li_img">
+            <a href="https://mp.weixin.qq.com/s?__biz=MzU4MzY0NDM3OQ==&mid=100000026&idx=1&sn=e069e09df4449e34c4d1518203330d82&scene=19#wechat_redirect"><img src="images/img_1.JPG">
+            </a>
+        </li>
+         <li class="li_img"><img src="images/img_2.jpg"></li>
+         <li class="li_img"><img src="images/img_3.jpg"></li>
+   </ul>
+</div>
+
+<div style="margin-left: 600px">
+         <div class="div_btn"></div>
+         <div class="div_btn"></div>
+         <div class="div_btn"></div>
+    
+</div>
+
+
+<style>
+        img {
+            width: 100%;
+        }
+
+        .top{
+        	text-align: center;
+            background-color: #08088A;
+            width: 800px;
+            height: 40px;
+            margin-left: 350px;
+        }
+
+        .li_img {
+            width: 800px;
+            float: left;
+            list-style: none;
+        }
+
+        .ul_img {
+            width: 6000px;
+            padding: 0px;
+            margin: 0px;
+            transition: all 2s;
+        }
+
+        .main_div {
+            z-index: 99;
+            width: 800px;
+            overflow: hidden;
+            position: relative;
+            top: 50px;
+            left: 350px;
+            box-shadow: 0 0 10px 5px #bbb;
+        }
+
+        .arrows {
+            z-index: 999;
+            position: absolute;
+            padding-top: 230px;
+            width: 800px;
+        }
+
+        .arrows span {
+            font-size: 3em;
+            color: seashell;
+        }
+
+        .arrows span:hover {
+            /*变小手*/
+            cursor: pointer;
+            background-color: rgba(192, 192, 192, 0.29);
+        }
+
+        .div_btn {
+            z-index:999;
+            float: left;
+            border-radius: 100px;
+            background-color: aquamarine;
+            width: 60px;
+            height: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .div_btn:hover {
+            background-color: aqua;
+
+        }
+
+      .button{
+        color: #666;
+        background-color: #EEE;
+        border-color: #EEE;
+        font-weight: 300;
+        font-size: 16px;
+        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 40px;
+        margin: 0;
+        display: inline-block;
+        appearance: none;
+        cursor: pointer;
+        border: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+        height: 30px;
+        line-height: 24px;
+        padding: 0 24px; 
+        width: 400px;
+        float: left;
+    }
+        .button-container{
+        	text-align: center;
+            background-color: #08088A;
+            width: 800px;
+            height: 30px;
+            margin-left: 350px;
+        }
+
+        .triangle-topleft{
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+</style>
+
+
+<script>
+    //跑动的次数
+    var count = 0;
+    //动画的执行方向
+    var isgo = false;
+    //定义计时器对象
+    var timer;
+
+    window.onload = function () {
+        /*获取ul元素*/
+        var ul_img = document.getElementsByClassName("ul_img")[0];
+        //获取所有的li图片元素
+        var li_img = document.getElementsByClassName("li_img");
+        //获取控制方向的箭头元素
+        var arrow = document.getElementsByClassName("arrow");
+        //获取所有按钮元素
+        var div_btn = document.getElementsByClassName("div_btn");
+        div_btn[0].style.backgroundColor = "aqua";
+
+        ul_img.style.transform = "translate(-1600px)";
+
+        /*定义计时器，控制图片移动*/
+        showtime();
+        function showtime() {
+            timer = setInterval(function () {
+                if (isgo == false) {
+                    count++;
+                    ul_img.style.transform = "translate(" + -800 * count + "px)";
+                    if (count >= li_img.length - 1) {
+                        count = li_img.length - 1;
+                        isgo = true;
+                    }
+                }
+                else {
+                    count--;
+                    ul_img.style.transform = "translate(" + -800 * count + "px)";
+                    if (count <= 0) {
+                        count = 0;
+                        isgo = false;
+                    }
+                }
+
+                for (var i = 0; i < div_btn.length; i++) {
+                    div_btn[i].style.backgroundColor = "aquamarine";
+                }
+
+                div_btn[count].style.backgroundColor = "aqua";
+
+            },4000)
+        }
+
+        /*鼠标进入左右方向键操作*/
+        for (var i = 0; i < arrow.length; i++) {
+            //鼠标悬停时
+            arrow[i].onmouseover = function () {
+                //停止计时器
+                clearInterval(timer);
+            }
+            //鼠标离开时
+            arrow[i].onmouseout = function () {
+                //添加计时器
+                showtime();
+            }
+            arrow[i].onclick = function () {
+                //区分左右
+                if (this.title == 0) {
+                    count++;
+                    if (count > 3) {
+                        count = 0;
+                    }
+                }
+                else {
+                    count--;
+                    if (count < 0) {
+                        count = 3;
+                    }
+                }
+
+                ul_img.style.transform = "translate(" + -800 * count + "px)";
+
+                for (var i = 0; i < div_btn.length; i++) {
+                    div_btn[i].style.backgroundColor = "aquamarine";
+                }
+                div_btn[count].style.backgroundColor = "aqua";
+            }
+        }
+
+        //鼠标悬停在底部按钮的操作
+        for (var b = 0; b < div_btn.length; b++) {
+            div_btn[b].index = b;
+            div_btn[b].onmouseover = function () {
+
+                clearInterval(timer);
+
+                for (var a = 0; a < div_btn.length; a++) {
+                    div_btn[a].style.backgroundColor = "aquamarine";
+                }
+                div_btn[this.index].style.backgroundColor = "aqua";
+                //让count值对应
+                //为了控制方向
+                if (this.index == 3) {
+                    isgo = true;
+                }
+                if (this.index == 0) {
+                    isgo = false;
+                }
+                count = this.index;
+                ul_img.style.transform = "translate(" + -800 * this.index + "px)";
+            }
+            div_btn[b].onmouseout = function () {
+                //添加计时器
+                showtime();
+            }
+        }
+    }
+</script>
